@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/app_graph"
+    app:startDestination="@id/home">
+
+    <fragment
+        android:id="@+id/home"
+        android:name="com.danieloliveira.gistsandroid.presentation.home.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home">
+
+        <argument
+            android:name="isFavorite"
+            android:defaultValue="false"
+            app:argType="boolean" />
+
+        <action
+            android:id="@+id/action_homeFragment_to_gistDetailFragment"
+            app:destination="@id/gistDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/favorites"
+        android:name="com.danieloliveira.gistsandroid.presentation.home.HomeFragment"
+        android:label="fragment_favorites"
+        tools:layout="@layout/fragment_favorites">
+
+        <argument
+            android:name="isFavorite"
+            android:defaultValue="true"
+            app:argType="boolean" />
+
+        <action
+            android:id="@+id/action_favoritesFragment_to_gistDetailFragment"
+            app:destination="@id/gistDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/gistDetailFragment"
+        android:name="com.danieloliveira.gistsandroid.presentation.detail.GistDetailFragment"
+        android:label="fragment_gist_detail"
+        tools:layout="@layout/fragment_gist_detail" />
+</navigation>
